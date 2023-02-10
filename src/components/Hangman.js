@@ -18,18 +18,13 @@ const Hangman = () => {
 	const fetchingWords = async () => {
 		axios
 			.get("https://random-word-form.herokuapp.com/random/noun")
-			.then(
-				(response) =>
-					setSelectedWord(response.data[0]) /* console.log(response) */
-			)
+			.then((response) => setSelectedWord(response.data[0]))
 			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
 		fetchingWords();
 	}, []);
-
-	console.log(selectedWord);
 
 	let word = selectedWord;
 
